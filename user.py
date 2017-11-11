@@ -7,8 +7,7 @@ class User:
         self.telefone = int
         self.email = str
         self.senha = str
-
-
+        
     def get_nome(self):
         return self.nome
     def set_nome(self, novo_nome):
@@ -34,6 +33,34 @@ class User:
     def set_senha(self, nova_senha):
         self.senha = nova_senha
 
+    def menu(self):
+        print('1 - Editar nome')
+        print('2 - Editar endereço')
+        print('3 - Editar data de Nascimento')
+        print('4 - editar telefone')
+        print('5 - Mostrar Dados')
+        print('x - Sair')
+        opcao = input('Digite a opção:')
+
+        if opcao == '1':
+            novo_nome = input(str('Digite um nome:'))#coigir o uso da fucão set baseado em outro codigos
+            set_nome(novo_nome)
+        if opcao == '2':
+            novo_end = input(str('Digite seu endereço:(Rua, Número e Cidade)'))
+
+        if opcao == '3':
+            nova_data = input(str('Insira sua data de nascimento:(dd/mm/aa)'))
+
+        if opcao == '4':
+            novo_tel = input(str('Digite se número de telefone:(+xx(ddd)xxxx-xxxx)'))
+
+        if opcao == '5':
+            print('Todos os Dados:'/next('Nome:', get_nome())/next('Endereço:', ) #verificar utilização do get
+
+    return opcao        
+        
+        
+    
     def logar(self):
         resposta = str
         while(resposta != 'loguin efetuado'):
@@ -41,6 +68,12 @@ class User:
             s = input ("Senha:")
             if e == self.email and s == self.senha:
                 print('Loguin efetuado' )
+              #chamar menu  
+                
             else:
                 print('email ou senha incorretos')
                 respoata = ('email ou senha incorretos')
+
+
+    
+    
