@@ -2,15 +2,20 @@ class Sistem:
     def __init__(self):
         self.shanana = None
 
-    def menu(self, op):
-        print('1 - Fazer Cadastro: ')
-        opcao = input('Digite o numero da ação desejada: ')
+    def menu(self):
+        print('1 - Cadastrar conta')
+        print('2 - Mostrar conta')
+        print('x - Sair')
+        opcao = input('Digite a opção:')
+
         if opcao == '1':
             Dado.cadastro()
-            return(opcao)
-        return(opcao)
 
-#substituir menu
+        if opcao == '2':
+            numero_conta = input('Conta:')
+            self.mostrar_conta(numero_conta)
+
+        return(opcao)
 
 class Dado:
     def __init__(self, nome, endereco, data_nsc, telefone, email, senha):
@@ -48,6 +53,7 @@ class User:
         self.id()
 
 
+
 class Lista_Encadeada:
     def __init__(self):
         self.inicio = None
@@ -58,10 +64,20 @@ class Lista_Encadeada:
         self.inicio = novo_no
         self.inicio.info = dados
         self.log = log
-
+        Conts.armazenar(self.inicio)
 
 class No:
     def __init__(self, valor):
         self.dado = valor
         self.proximo = None
         self.info = None
+
+
+class Conts:
+    def __init__(self):
+        self.contas = []
+
+    def armazenar(self, usuario):
+        self.contas.append(usuario)
+
+    def exibir_dados(self): # preparar para exibir dados
