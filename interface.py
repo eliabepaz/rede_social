@@ -1,5 +1,5 @@
 from sistema import Sistem
-
 user = Sistem
-user.nome = 'eli'
-user.menu('')
+opcao = ''
+while opcao != 'x':
+    opcao = user.menu(None)
