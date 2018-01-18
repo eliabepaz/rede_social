@@ -1,34 +1,52 @@
+from acounts import Conta
 from acounts import Loguin
-from BD import log
-from acounts import Dados
-conta = Dados
-log_dados = Loguin
-log_list = log
-
 class Sistem:
     def __init__(self):
-        self.identificador = None
-
+        self.contas = []
+        self.loguin = []
+    def cadastrar_user(self,nome,idade,telefone,endereco,email,senha):      #Pedir ajuda no IF
+        conta = Conta(nome,idade,telefone,endereco)
+        log = Loguin(email,senha)
+        self.contas.append(conta)
+        self.loguin.append(log)
     def menu(self):
         print('1 - Cadastrar conta')
-        print('2 - Mostrar conta')
-        print('3 - Cadastrar Email e Senha')
+        print('2 - Loguin')
         print('x - Sair')
         opcao = input('Digite a opção: ')
 
         if opcao == '1':
-            print('\n\n\n')
-            conta.nome = input('Digite seu nome: ')
-            conta.idade = input('Digite sua idade: ')
-            conta.telefone = input('Digite seu telefone: ')
-            conta.endereco = input('Digite seu endereço: ')
-            print('\n\n\n')
-        if opcao == '2':
-            print('Nome do usuario: ' + str(conta.nome) + '\nIdade: ' + str(conta.idade) + '\nTelefone: ' + str(conta.telefone) + '\nEndereço: ' + str(conta.endereco))
+            nome = input('Digite seu nome: ')
+            idade = input('Digite sua idade: ')
+            telefone = input('Digite seu telefone: ')
+            endereco = input('Digite seu endereço: ')
+            email = input('Digite seu e-mail:')
+            for email1 in self.loguin:
+                if email1 == email:
+                    print('E-mail já cadastrado')
+                    return(opcao)
+            senha = input('Digite sua senha:')
+            senha1 = input('Digite sua senha novamente:')
+            if senha != senha1:
+                print('As senhas não conferem')
+                senha = input('Digite sua senha: ')
+                senha1 = input('Digite sua senha novamente: ')
+            self.cadastrar_user(nome,idade,telefone,endereco)
 
-        if opcao == '3':
-            log_dados.email = input('Digite um email valido:')
-            log_dados.senha = input('Digite um senha:')
-            log_list.emails.append(log_dados.email)
-            log_list.senhas.append(log_dados.senha)
+
+        if opcao == 2:
+                email = input('Digite seu e-mail: ')
+                senha = input('Digite sua senha: ')
+                for usuario in self.loguin:
+                    if usuario.email == email and usuario.senha == senha:
+                        print('Loguin efetuado!')
+                        #vem o menu da rede social
+                    else:
+                        print('Email ou senha incorreto!')
         return(opcao)
+
+
+
+
+
+
