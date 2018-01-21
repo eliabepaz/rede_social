@@ -40,7 +40,7 @@ class Sistem:
                 for usuario in self.loguin:
                     if usuario.email == email and usuario.senha == senha:
                         print('Loguin efetuado!')
-                        #vem o menu da rede social
+                        #vem o menu do fees
                     else:
                         print('Email ou senha incorreto!')
         return(opcao)
