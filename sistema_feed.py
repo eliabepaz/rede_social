@@ -1,3 +1,5 @@
+from batepapo import Batepapo
+bp = Batepapo
 class Perfil:
     def __init__(self):
         self.bibliografia = str
@@ -16,10 +18,11 @@ class Perfil:
         if opcao == '1':
             print('Digite algo sobre você para que os outros possam lhe conhecer melhor!')
             self.bibliografia = input('Digite: ')
-        if opcao == 2:
-            pass#aqui vem menu do bate papo
-
-        if opcao == 3:
+        if opcao == '2':
+            opcao = ''
+            while opcao != 'x':
+                opcao = bp.menu(None)
+        if opcao == '3':
             print(self.bibliografia)
             c = 0
             for x in self.amigos:
