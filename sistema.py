@@ -1,5 +1,7 @@
 from acounts import Conta
 from acounts import Loguin
+from sistema_feed import Perfil
+perf = Perfil
 class Sistem:
     def __init__(self):
         self.contas = []
@@ -33,20 +35,16 @@ class Sistem:
                 senha1 = input('Digite sua senha novamente: ')
             self.cadastrar_user(nome,idade,telefone,endereco)
 
-
         if opcao == 2:
                 email = input('Digite seu e-mail: ')
                 senha = input('Digite sua senha: ')
                 for usuario in self.loguin:
                     if usuario.email == email and usuario.senha == senha:
                         print('Loguin efetuado!')
-                        #vem o menu do feed
+                        opcao = ''
+                        while opcao != 'x':
+                            opcao = perf.menu_feed(None)
                     else:
                         print('Email ou senha incorreto!')
+
         return(opcao)
-
-
-
-
-
-
