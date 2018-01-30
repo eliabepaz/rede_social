@@ -1,28 +1,47 @@
-from acounts import Bd
-from acounts import Conta
-from acounts import Loguin
-banco = Bd()
-class Sistem:
+from sistema import Sistem
+sis = Sistem()
+class Batepapo:
     def __init__(self):
-        pass
+        self.conversas = list
     def menu(self):
-        print('1 - Cadastrar conta')
-        print('2 - Loguin')
+        print('\n\n')
+        print('Bate papo')
+        print('1 - Nova conversa')
+        print('2 - Ver todas as conversas')
+        print('3 - Nova menssagem')
         print('x - Sair')
         opcao = input('Digite a opção: ')
 
         if opcao == '1':
-            usuario = Conta
-            log = Loguin
-            usuario.nome = input('Digite seu nome')
-            usuario.idade = input('Digite sua idade')
-            usuario.telefone = input('Digite seu telefone')
-            usuario.endereco = input('Digite seu endereço')
-            log.email = input('Digite seu email:')
-            log.senha = input('Digite sua senha')
-            banco.insert_user(usuario,log)
-            # cria tratamento de erro para senha
-        if opcao == 2:
-                pass
-                #fazer ligação com menu feed
-        return(opcao)
+           mensagem.nova_conversa(None)
+        if opcao == '2':
+            for x in self.conversas():
+                print(x)
+        if opcao == '3':
+            mensagem.nova_msg(None)
+        return (opcao)
+class Conversa:
+    def __init__(self):
+        self.menssagens = list
+
+class mensagem:
+    def __init__(self):
+        self.texto = str
+
+    def nova_conversa(self):
+        destino = input('Digite o nome do destinatario: ')
+        for x in sis.contas:
+            if x.nome == destino:
+                txt = self.texto
+                new_con = Conversa()
+                new_con.menssagens.append(txt)
+    def nova_msg(self):
+        destino = input('Digite o nome do outro prosador: ')
+        new_ms = mensagem()
+        con = Batepapo()
+        for x in con.conversas:
+            if x.nome == destino:
+                for y in x:
+                    print(y)
+                new_ms.texto = input('Digite a menssagem: ')
+                x.append(new_ms.texto)
