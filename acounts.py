@@ -17,4 +17,4 @@ class Bd:
 
     def insert_user(self,user,log):
         self.contas.append(user)
-        self.loguin.append(log)
+        self.loguin.append(log())
